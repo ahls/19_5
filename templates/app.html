@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Boggle! {% endblock %}
+{% block body %}  
+<table>
+    
+    {% for row in session['board'] %}
+    <tr>
+        {% for cell in row %}
+        <td class="tableCell">{{cell}}</td>
+        {% endfor %}
+    </tr><br>
+    {% endfor %}
+</table>
+<div>Score: <span id="scoreDisplay">{{session['score']}}</span></div> 
+<div>Remaining Time: <span id="timeDisplay"></span></div> 
+<div>Times Played: {{session['numPlay']}}</div>
+
+<form action="#">
+    <label for="wordInput">Word:</label>
+    <input type="text" for="wordInput" id="wordInput"><br>
+    <input type="submit" id="submitButton" value="submit">
+</form>
+
+<script src="static/app.js"></script>
+{% endblock %}
